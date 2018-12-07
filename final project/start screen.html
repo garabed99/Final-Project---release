@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>start screen</title>
+	<style type="text/css">
+		h1{
+			color:white;
+			font-size:200px;
+			text-align:center;
+			letter-spacing:10px;
+		}
+		h3{
+			color: #00ff00;
+			font-size:70px;
+			text-align:center;
+			text-indent:-30px;
+			position:relative;
+			bottom:160px;
+		}
+		h4 {
+			color: #00ff00;
+			font-size:50px;
+			text-align:center;
+			text-indent:-30px;
+			position:relative;
+			bottom:190px;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+      <div class="main">
+     	<video class = "video" autoplay loop muted>
+     		<source src="stars.mp4" type="video/mp4">
+     	</video>
+     	<h1 class="top-left" style="color: blue">Rubo</h1>
+        <h3 class="h3">Press enter to start</h3>
+		<h4 id='score' style="color: white"></h4>
+      </div>
+
+
+
+      
+</body>
+	<script>
+	const enter = 13;
+    document.addEventListener('keyup', function(q) {
+        if(q.keyCode === enter) {
+            location = 'hotkeystutorial.html';
+        }
+    });
+    
+	const scorePlace = document.getElementById('score');
+	const highScore =  localStorage.getItem('max_score')
+	const parsedScore = JSON.parse(highScore);
+	const userName = Object.keys(parsedScore)[0];
+
+	scorePlace.innerHTML = "- HIGH SCORE - <br> " +  userName + " : " + parsedScore[userName];
+	</script>
+</html>
